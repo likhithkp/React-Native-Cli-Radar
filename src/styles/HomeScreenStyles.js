@@ -34,4 +34,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
   },
+  weatherItem: {
+    height: 200,
+    margin: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    borderRadius: 20,
+    width: 200,
+    padding: 10,
+  },
 });
