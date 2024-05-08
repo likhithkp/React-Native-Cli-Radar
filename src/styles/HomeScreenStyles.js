@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#121212',
   },
   temperature: {
-    fontSize: 80,
+    fontSize: 90,
     color: 'white',
     fontWeight: '300',
   },
@@ -15,7 +15,8 @@ export const styles = StyleSheet.create({
     color: 'white',
   },
   dateAndTime: {
-    fontSize: 13,
+    marginTop: 10,
+    fontSize: 15,
     color: 'white',
   },
   searchIcon: {
@@ -26,6 +27,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
+    margin: 10,
   },
   textInput: {
     padding: 10,
@@ -36,26 +38,38 @@ export const styles = StyleSheet.create({
   },
   mainTemperatureView: {
     alignItems: 'center',
+    padding: 42,
   },
+  mainTemperatureSecondView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  mainWeatherIconStyles: {height: 70, width: 70},
+  flatListWeatherImage: {height: 50, width: 50},
   higLowTempView: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 10,
+    gap: 7,
+    marginBottom: 30,
   },
   weatherDescription: {
     fontSize: 20,
   },
   weatherItem: {
-    height: 200,
+    height: 160,
     margin: 10,
     backgroundColor: '#3B3F44',
     borderRadius: 10,
-    width: 150,
+    width: 140,
     padding: 10,
     gap: 10,
+    marginBottom: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   flatListComponentTextStyles: {
-    fontSize: 15,
+    fontSize: 14,
     color: 'white',
   },
   currentWeatherViewStyles: {
@@ -66,6 +80,16 @@ export const styles = StyleSheet.create({
     margin: 15,
     borderRadius: 10,
     height: 250,
+    gap: 2,
+  },
+  currentExtraWeatherViewStyles: {
+    backgroundColor: '#3B3F44',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '92%',
+    margin: 15,
+    borderRadius: 10,
+    height: 180,
     gap: 2,
   },
   currentWeatherSubViewStyles: {
@@ -79,5 +103,17 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: 17,
     marginLeft: 10,
+  },
+  weatherDescription2: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+  flatListHeaderStyles: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 5,
   },
 });
