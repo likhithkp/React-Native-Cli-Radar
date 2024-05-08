@@ -1,64 +1,47 @@
-import {
-  FlatList,
-  Pressable,
-  ScrollView,
-  Text,
-  ToastAndroid,
-  View,
-} from 'react-native';
+import {FlatList, ScrollView, Text, ToastAndroid, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {styles} from '../styles/HomeScreenStyles';
-import axios from 'axios';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import CurrentWeatherDetails from '../components/currentWeatherDetails';
 import {formatTimestamp} from '../utils/convertTimeStamp';
+import FlatListComponent from '../components/flatListComponent';
+import SearchView from '../components/searchView';
+import {getWeather} from '../api/getCurrentWeather';
+import {getThreeHourWeatherData} from '../api/getThreeHourWeather';
 
 export default function HomeScreen() {
   const [currentWeatherData, setCurrentWeatherData] = useState({});
   const [threeHourWeatherData, setThreeHourWeatherData] = useState([]);
 
-  const getWeather = async () => {
-    const result = await fetch(
-      'https://api.openweathermap.org/data/2.5/weather?q=madikeri&appid=13cffaf83ca230a33e17245b5aa557f8&units=metric',
-    );
-    const data = await result.json();
-    if (data?.cod === 200) {
-      ToastAndroid.show('Weather fetched', ToastAndroid.SHORT);
-      setCurrentWeatherData(data);
+  const getCurrentWeather = async () => {
+    try {
+      const weatherData = await getWeather();
+      setCurrentWeatherData(weatherData);
       return;
-    }
-    if (data?.cod !== 200) {
-      ToastAndroid.show('Unable to fetch the weather', ToastAndroid.SHORT);
-      return;
+    } catch {
+      ToastAndroid.show('Unable to fetch the weather', ToastAndroid.LONG);
     }
   };
 
-  const getThreeHourWeatherData = async () => {
-    await axios
-      .get(
-        'https://api.openweathermap.org/data/2.5/forecast?q=madikeri&appid=13cffaf83ca230a33e17245b5aa557f8&units=metric',
-      )
-      .then(response => setThreeHourWeatherData(response.data.list));
+  const fetchThreeHourData = async () => {
+    try {
+      const threeWeatherData = await getThreeHourWeatherData();
+      setThreeHourWeatherData(threeWeatherData);
+      return;
+    } catch {
+      ToastAndroid.show('Unable to fetch the forecast', ToastAndroid.LONG);
+    }
   };
-
-  console.log('threeHourWeatherData', threeHourWeatherData[0]);
 
   useEffect(() => {
-    getWeather();
-    getThreeHourWeatherData();
+    getCurrentWeather();
+    fetchThreeHourData();
   }, []);
 
   return (
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.searchIconView}>
-          <Pressable onPress={() => console.log('Pressed')}>
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              style={styles.searchIcon}
-            />
-          </Pressable>
+          <SearchView />
         </View>
         {currentWeatherData && (
           <View style={styles.mainTemperatureView}>
@@ -84,35 +67,13 @@ export default function HomeScreen() {
         <View>
           <FlatList
             data={threeHourWeatherData}
-            renderItem={({item}) => (
-              <View style={styles.weatherItem}>
-                <Text style={styles.flatListComponentTextStyles}>
-                  {formatTimestamp(item?.dt)}
-                </Text>
-                <Text style={styles.flatListComponentTextStyles}>
-                  Temperature: {Math.ceil(item.main.temp)}°
-                </Text>
-                <Text style={styles.flatListComponentTextStyles}>
-                  L : {Math.ceil(item.main.temp_min)}° H : {''}
-                  {Math.ceil(item.main.temp_max)}°
-                </Text>
-                <Text style={styles.flatListComponentTextStyles}>
-                  Condition: {item.weather[0]?.main}
-                </Text>
-                <Text style={styles.flatListComponentTextStyles}>
-                  Humidity: {item.main?.humidity}
-                </Text>
-                <Text style={styles.flatListComponentTextStyles}>
-                  Visibility: {item.visibility}
-                </Text>
-              </View>
-            )}
+            renderItem={({item}) => <FlatListComponent item={item} />}
             showsVerticalScrollIndicator={false}
             keyExtractor={weatherInfo => weatherInfo?.dt?.toString()}
             horizontal
           />
         </View>
-        <Text style={styles.normalFont}>Details</Text>
+        <Text style={styles.normalFont}>Today's Details</Text>
         <CurrentWeatherDetails currentWeatherData={currentWeatherData} />
       </ScrollView>
     </View>

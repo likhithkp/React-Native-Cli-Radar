@@ -65,12 +65,19 @@ export const styles = StyleSheet.create({
     width: '92%',
     margin: 15,
     borderRadius: 10,
-    height: 200,
-    gap: 15,
+    height: 250,
+    gap: 2,
   },
-  currentWeatherStyles: {},
+  currentWeatherSubViewStyles: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    padding: 8,
+  },
   normalFont: {
     color: 'white',
-    fontSize: 15,
+    fontSize: 17,
+    marginLeft: 10,
   },
 });
