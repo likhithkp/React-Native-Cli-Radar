@@ -69,17 +69,23 @@ export default function HomeScreen() {
             </View>
           </>
         )}
-        <View>
-          <FlatList
-            data={threeHourWeatherData}
-            renderItem={({item}) => <FlatListComponent item={item} />}
-            showsVerticalScrollIndicator={false}
-            keyExtractor={weatherInfo => weatherInfo?.dt?.toString()}
-            horizontal
-          />
-        </View>
-        <Text style={styles.normalFont}>Today's Details</Text>
-        <CurrentWeatherDetails currentWeatherData={currentWeatherData} />
+        {threeHourWeatherData && (
+          <View>
+            <FlatList
+              data={threeHourWeatherData}
+              renderItem={({item}) => <FlatListComponent item={item} />}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={weatherInfo => weatherInfo?.dt?.toString()}
+              horizontal
+            />
+          </View>
+        )}
+        {currentWeatherData && (
+          <>
+            <Text style={styles.normalFont}>Today's Details</Text>
+            <CurrentWeatherDetails currentWeatherData={currentWeatherData} />
+          </>
+        )}
       </ScrollView>
     </View>
   );
