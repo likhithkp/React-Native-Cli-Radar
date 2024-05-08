@@ -3,21 +3,29 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#121212',
   },
   temperature: {
     fontSize: 80,
+    color: 'white',
+    fontWeight: '300',
   },
   cityName: {
-    fontSize: 40,
+    fontSize: 20,
+    color: 'white',
+  },
+  dateAndTime: {
+    fontSize: 13,
+    color: 'white',
   },
   searchIcon: {
-    fontSize: 30,
     margin: 10,
+    color: 'white',
   },
   searchIconView: {
     flexDirection: 'row',
     alignItems: 'center',
-    // justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
   textInput: {
     padding: 10,
@@ -34,12 +42,35 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
   },
+  weatherDescription: {
+    fontSize: 20,
+  },
   weatherItem: {
     height: 200,
     margin: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    borderRadius: 20,
-    width: 200,
+    backgroundColor: '#3B3F44',
+    borderRadius: 10,
+    width: 150,
     padding: 10,
+    gap: 10,
+  },
+  flatListComponentTextStyles: {
+    fontSize: 15,
+    color: 'white',
+  },
+  currentWeatherViewStyles: {
+    backgroundColor: '#3B3F44',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '92%',
+    margin: 15,
+    borderRadius: 10,
+    height: 200,
+    gap: 15,
+  },
+  currentWeatherStyles: {},
+  normalFont: {
+    color: 'white',
+    fontSize: 15,
   },
 });
