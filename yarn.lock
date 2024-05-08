@@ -1704,7 +1704,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-svg-core@npm:^6.5.2":
+"@fortawesome/fontawesome-svg-core@npm:latest":
   version: 6.5.2
   resolution: "@fortawesome/fontawesome-svg-core@npm:6.5.2"
   dependencies:
@@ -1722,7 +1722,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-regular-svg-icons@npm:^6.5.2":
+"@fortawesome/free-regular-svg-icons@npm:latest":
   version: 6.5.2
   resolution: "@fortawesome/free-regular-svg-icons@npm:6.5.2"
   dependencies:
@@ -1737,6 +1737,18 @@ __metadata:
   dependencies:
     "@fortawesome/fontawesome-common-types": 6.5.2
   checksum: f23964434ccbab5114c05bcdabb79d8e801b5be534618db7947d40d4841a3e52177e6145ae5fe59c941d864f70ffcffd0f1e4f0983dfd0048a1f5f3430a00c8c
+  languageName: node
+  linkType: hard
+
+"@fortawesome/react-fontawesome@npm:latest":
+  version: 0.2.0
+  resolution: "@fortawesome/react-fontawesome@npm:0.2.0"
+  dependencies:
+    prop-types: ^15.8.1
+  peerDependencies:
+    "@fortawesome/fontawesome-svg-core": ~1 || ~6
+    react: ">=16.3"
+  checksum: f652a0c2172e7b209e2d9e7e511f9b8c17abad85f55e0bd09bb1175ea1927693215da47eb6cd95b1f3a23bd124368553c677907fa76cb17c5093afc1fcffe338
   languageName: node
   linkType: hard
 
@@ -3152,10 +3164,11 @@ __metadata:
     "@babel/core": ^7.20.0
     "@babel/preset-env": ^7.20.0
     "@babel/runtime": ^7.20.0
-    "@fortawesome/fontawesome-svg-core": ^6.5.2
+    "@fortawesome/fontawesome-svg-core": latest
     "@fortawesome/free-brands-svg-icons": ^6.5.2
-    "@fortawesome/free-regular-svg-icons": ^6.5.2
+    "@fortawesome/free-regular-svg-icons": latest
     "@fortawesome/free-solid-svg-icons": ^6.5.2
+    "@fortawesome/react-fontawesome": latest
     "@fortawesome/react-native-fontawesome": ^0.3.0
     "@react-native-vector-icons/ant-design": ^4.4.2-alpha.9
     "@react-native/babel-preset": 0.74.83

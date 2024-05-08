@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   FlatList,
   Image,
   ScrollView,
@@ -22,11 +23,16 @@ import {formatTimestamp} from '../utils/convertTimeStamp';
 export default function HomeScreen() {
   const [currentWeatherData, setCurrentWeatherData] = useState({});
   const [threeHourWeatherData, setThreeHourWeatherData] = useState([]);
+  const [loadingThreeHourWeatherData, setLoadingThreeHourWeatherData] =
+    useState(true);
+  const [loadingCurrentWeatherData, setLoadingCurrentWeatherData] =
+    useState(true);
 
   const getCurrentWeather = async () => {
     try {
       const weatherData = await getWeather();
       setCurrentWeatherData(weatherData);
+      setLoadingCurrentWeatherData(!loadingCurrentWeatherData);
       return;
     } catch {
       ToastAndroid.show('Unable to fetch the weather', ToastAndroid.LONG);
@@ -37,6 +43,7 @@ export default function HomeScreen() {
     try {
       const threeWeatherData = await getThreeHourWeatherData();
       setThreeHourWeatherData(threeWeatherData);
+      setLoadingThreeHourWeatherData(!loadingThreeHourWeatherData);
       return;
     } catch {
       ToastAndroid.show('Unable to fetch the forecast', ToastAndroid.LONG);
@@ -53,11 +60,13 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <View style={styles.searchIconView}>
-          <SearchView />
-        </View>
-        {currentWeatherData && weather && (
+        {loadingCurrentWeatherData || loadingThreeHourWeatherData ? (
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : (
           <>
+            <View style={styles.searchIconView}>
+              <SearchView />
+            </View>
             <View style={styles.mainTemperatureView}>
               <View style={styles.mainTemperatureSecondView}>
                 <Text style={styles.temperature}>
@@ -80,39 +89,35 @@ export default function HomeScreen() {
                 Feels like {Math.ceil(currentWeatherData?.main?.feels_like)}°
               </Text>
             </View>
-          </>
-        )}
-        {threeHourWeatherData && (
-          <View>
-            <View style={styles.flatListHeaderStyles}>
-              <FontAwesomeIcon
-                icon={faCalendarDays}
-                style={styles.normalFont}
+            <View>
+              <View style={styles.flatListHeaderStyles}>
+                <FontAwesomeIcon
+                  icon={faCalendarDays}
+                  style={styles.normalFont}
+                />
+                <Text style={styles.normalFont}>Next Five Days</Text>
+              </View>
+              <FlatList
+                data={threeHourWeatherData}
+                renderItem={({item}) => <FlatListComponent item={item} />}
+                showsHorizontalScrollIndicator={false}
+                keyExtractor={weatherInfo => weatherInfo?.dt?.toString()}
+                horizontal
               />
-              <Text style={styles.normalFont}>Next Five Days</Text>
             </View>
-            <FlatList
-              data={threeHourWeatherData}
-              renderItem={({item}) => <FlatListComponent item={item} />}
-              showsHorizontalScrollIndicator={false}
-              keyExtractor={weatherInfo => weatherInfo?.dt?.toString()}
-              horizontal
-            />
-          </View>
-        )}
-        {currentWeatherData && (
-          <>
-            <View style={styles.flatListHeaderStyles}>
-              <FontAwesomeIcon
-                icon={faCalendarDays}
-                style={styles.normalFont}
+            <>
+              <View style={styles.flatListHeaderStyles}>
+                <FontAwesomeIcon
+                  icon={faCalendarDays}
+                  style={styles.normalFont}
+                />
+                <Text style={styles.normalFont}>Today's Details</Text>
+              </View>
+              <CurrentWeatherDetails currentWeatherData={currentWeatherData} />
+              <CurrentWeatherExtraDetails
+                currentWeatherData={currentWeatherData}
               />
-              <Text style={styles.normalFont}>Today's Details</Text>
-            </View>
-            <CurrentWeatherDetails currentWeatherData={currentWeatherData} />
-            <CurrentWeatherExtraDetails
-              currentWeatherData={currentWeatherData}
-            />
+            </>
           </>
         )}
       </ScrollView>

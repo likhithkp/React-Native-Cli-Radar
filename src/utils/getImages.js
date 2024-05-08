@@ -16,7 +16,7 @@ export const weatherImages = {
   'clear sky': require('../assets/images/sun.png'),
   mist: require('../assets/images/mist.png'),
   rain: require('../assets/images/moderaterain.png'),
-  smoke: require('../assets/icons/wind.png'),
+  smoke: require('../assets/images/mist.png'),
   thunderstorm: require('../assets/images/heavyrain.png'),
   null: require('../assets/images/fullStar.png'),
   other: require('../assets/images/fullStar.png'),
