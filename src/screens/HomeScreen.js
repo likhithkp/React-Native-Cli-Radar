@@ -44,26 +44,31 @@ export default function HomeScreen() {
           <SearchView />
         </View>
         {currentWeatherData && (
-          <View style={styles.mainTemperatureView}>
-            <Text style={styles.cityName}>{currentWeatherData?.name}</Text>
-            <Text style={styles.dateAndTime}>
-              {formatTimestamp(currentWeatherData?.dt)}
-            </Text>
-            <Text style={styles.weatherDescription}>
-              {currentWeatherData?.weather?.description}
-            </Text>
-            <Text style={styles.temperature}>
-              {Math.ceil(currentWeatherData?.main?.temp)}°
-            </Text>
-          </View>
+          <>
+            <View style={styles.mainTemperatureView}>
+              <Text style={styles.cityName}>{currentWeatherData?.name}</Text>
+              <Text style={styles.dateAndTime}>
+                {formatTimestamp(currentWeatherData?.dt)}
+              </Text>
+              <Text style={styles.weatherDescription}>
+                {currentWeatherData?.weather?.description}
+              </Text>
+              <Text style={styles.temperature}>
+                {Math.ceil(currentWeatherData?.main?.temp)}°
+              </Text>
+            </View>
+            <View style={styles.higLowTempView}>
+              <Text>H : {Math.ceil(currentWeatherData?.main?.temp_max)}°</Text>
+              <Text>L : {Math.ceil(currentWeatherData?.main?.temp_min)}°</Text>
+              <Text>
+                Feels like : {Math.ceil(currentWeatherData?.main?.feels_like)}°
+              </Text>
+            </View>
+            <View>
+              <Text>{currentWeatherData?.weather?.description}</Text>
+            </View>
+          </>
         )}
-        <View style={styles.higLowTempView}>
-          <Text>H : {Math.ceil(currentWeatherData?.main?.temp_max)}°</Text>
-          <Text>L : {Math.ceil(currentWeatherData?.main?.temp_min)}°</Text>
-          <Text>
-            Feels like : {Math.ceil(currentWeatherData?.main?.feels_like)}°
-          </Text>
-        </View>
         <View>
           <FlatList
             data={threeHourWeatherData}
