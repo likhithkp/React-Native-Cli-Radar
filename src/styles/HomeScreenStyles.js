@@ -71,6 +71,11 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     color: 'white',
   },
+  flatListComponentTempTextStyles: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: 'white',
+  },
   currentWeatherViewStyles: {
     backgroundColor: '#3B3F44',
     alignItems: 'center',
