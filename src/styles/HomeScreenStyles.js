@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     gap: 10,
   },
   mainWeatherIconStyles: {height: 70, width: 70},
-  flatListWeatherImage: {height: 50, width: 50},
+  flatListWeatherImage: {height: 45, width: 45},
   higLowTempView: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -57,18 +57,18 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   weatherItem: {
-    height: 170,
+    height: 150,
     margin: 7,
     backgroundColor: '#3B3F44',
     borderRadius: 15,
-    width: 150,
+    width: 120,
     gap: 7,
     marginBottom: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
   flatListComponentTextStyles: {
-    fontSize: 14,
+    fontSize: 12,
     color: 'white',
   },
   currentWeatherViewStyles: {
