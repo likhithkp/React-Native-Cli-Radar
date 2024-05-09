@@ -56,7 +56,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     gap: hp(1.5),
-    marginBottom: hp(5),
+    marginBottom: hp(1),
+    marginTop: hp(2),
   },
   weatherItem: {
     height: hp(23),
