@@ -46,7 +46,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {loadingCurrentWeatherData || loadingThreeHourWeatherData ? (
           <ActivityIndicator size="large" color="#00ff00" />
         ) : (

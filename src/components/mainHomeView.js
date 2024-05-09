@@ -34,13 +34,13 @@ export default function MainHomeView({
         <Text style={styles.dateAndTime}>
           {formatTimestamp(currentWeatherData?.dt)}
         </Text>
-      </View>
-      <View style={styles.higLowTempView}>
-        <Text>H : {Math.ceil(currentWeatherData?.main?.temp_max)}°</Text>
-        <Text>L : {Math.ceil(currentWeatherData?.main?.temp_min)}°</Text>
-        <Text>
-          Feels like {Math.ceil(currentWeatherData?.main?.feels_like)}°
-        </Text>
+        <View style={styles.higLowTempView}>
+          <Text>H : {Math.ceil(currentWeatherData?.main?.temp_max)}°</Text>
+          <Text>L : {Math.ceil(currentWeatherData?.main?.temp_min)}°</Text>
+          <Text>
+            Feels like {Math.ceil(currentWeatherData?.main?.feels_like)}°
+          </Text>
+        </View>
       </View>
       <View>
         <View style={styles.flatListHeaderStyles}>
