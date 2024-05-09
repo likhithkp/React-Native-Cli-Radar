@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     gap: hp(1),
   },
-  mainWeatherIconStyles: {height: hp(17), width: wp(36)},
+  mainWeatherIconStyles: {height: hp(20), width: wp(36)},
   flatListWeatherImage: {height: hp(10), width: wp(18)},
   higLowTempView: {
     flexDirection: 'row',
