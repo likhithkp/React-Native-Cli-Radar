@@ -14,11 +14,11 @@ export default function FlatListComponent({item}) {
         source={weatherImages[weather[0]?.description]}
         style={styles.flatListWeatherImage}
       />
-      <Text style={styles.flatListComponentTextStyles}>
-        {formatTimestamp(item?.dt)}
+      <Text style={styles.flatListComponentTempTextStyles}>
+        {item?.main?.temp}°
       </Text>
       <Text style={styles.flatListComponentTextStyles}>
-        Temperature: {Math.ceil(item.main.temp)}°
+        {formatTimestamp(item?.dt)}
       </Text>
     </View>
   );

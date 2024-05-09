@@ -10,10 +10,11 @@
     "test": "jest"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/fontawesome-svg-core": "latest",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
-    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "latest",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "latest",
     "@fortawesome/react-native-fontawesome": "^0.3.0",
     "@react-native-vector-icons/ant-design": "^4.4.2-alpha.9",
     "@react-navigation/native": "^6.1.17",
