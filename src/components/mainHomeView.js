@@ -5,7 +5,7 @@ import {
   FlatList,
   Pressable,
   ToastAndroid,
-  Platform,
+  PermissionsAndroid,
 } from 'react-native';
 import React, {useState} from 'react';
 import {styles} from '../styles/HomeScreenStyles';
@@ -21,7 +21,6 @@ import {faLocationCrosshairs} from '@fortawesome/free-solid-svg-icons';
 import {getWeather} from '../api/getCurrentWeather';
 import {getThreeHourWeatherData} from '../api/getThreeHourWeather';
 import GetLocation from 'react-native-get-location';
-import {request, PERMISSIONS} from 'react-native-permissions';
 
 export default function MainHomeView({
   weather,
@@ -35,30 +34,27 @@ export default function MainHomeView({
 
   const getLocationPermission = async () => {
     try {
-      const permissionStatus = await request(
-        Platform.OS === 'android'
-          ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION
-          : PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
-          title: 'Allow',
-          message: 'Allow app',
+          title: 'Location permission',
+          message: 'Radar needs to access your location.',
           buttonNeutral: 'Ask Me Later',
           buttonNegative: 'Cancel',
           buttonPositive: 'OK',
         },
       );
-      if (permissionStatus === 'granted') {
-        ToastAndroid.show('Fetching... weather', ToastAndroid.LONG);
+      if (granted === 'granted') {
         getUserLocation();
+        ToastAndroid.show('Location accessed', ToastAndroid.SHORT);
+        return true;
       } else {
-        ToastAndroid.show('Location permission denied', ToastAndroid.SHORT);
+        ToastAndroid.show('Location accessed denied', ToastAndroid.SHORT);
+        return false;
       }
-    } catch (error) {
-      ToastAndroid.show(
-        'Failed to request location permission',
-        ToastAndroid.SHORT,
-      );
-      console.error(error);
+    } catch (err) {
+      ToastAndroid.show(err, ToastAndroid.SHORT);
+      return false;
     }
   };
 
@@ -82,9 +78,15 @@ export default function MainHomeView({
     try {
       if (Object.keys(userLocation)?.length === 2) {
         const weatherData = await getWeather(userLocation);
-        setCurrentWeatherData(weatherData);
+        setCurrentWeatherData(
+          (Object.keys(userLocation)?.length === 2 && weatherData) ||
+            (await currentWeatherForecastData),
+        );
         const threeWeatherData = await getThreeHourWeatherData(userLocation);
-        setThreeHourWeatherData(threeWeatherData);
+        setThreeHourWeatherData(
+          (Object.keys(userLocation)?.length === 2 && threeHourForecastData) ||
+            (await threeWeatherData),
+        );
         setShowFetchedLocation(!showFetchedLocation);
         ToastAndroid.show('Weather fetched successfully', ToastAndroid.LONG);
         return;
@@ -93,8 +95,6 @@ export default function MainHomeView({
       ToastAndroid.show('Unable to fetch the weather', ToastAndroid.LONG);
     }
   };
-
-  console.log('lat', Object.keys(userLocation).length === 2);
 
   return (
     <>
