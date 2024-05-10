@@ -5,7 +5,7 @@ import {getWeather} from '../api/getCurrentWeather';
 import {getThreeHourWeatherData} from '../api/getThreeHourWeather';
 import MainHomeView from '../components/mainHomeView';
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   const [currentWeatherData, setCurrentWeatherData] = useState({});
   const [threeHourWeatherData, setThreeHourWeatherData] = useState([]);
   const [loadingThreeHourWeatherData, setLoadingThreeHourWeatherData] =
@@ -47,6 +47,7 @@ export default function HomeScreen() {
             weather={weather}
             threeHourForecastData={threeHourWeatherData}
             currentWeatherForecastData={currentWeatherData}
+            navigation={navigation}
           />
         )}
       </ScrollView>

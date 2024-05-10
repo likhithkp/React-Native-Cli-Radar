@@ -26,6 +26,7 @@ export default function MainHomeView({
   weather,
   threeHourForecastData,
   currentWeatherForecastData,
+  navigation,
 }) {
   const [currentWeatherData, setCurrentWeatherData] = useState({});
   const [threeHourWeatherData, setThreeHourWeatherData] = useState([]);
@@ -93,7 +94,7 @@ export default function MainHomeView({
   return (
     <>
       <View style={styles.searchIconView}>
-        <Pressable onPress={() => console.log('search')}>
+        <Pressable onPress={() => navigation.navigate('Search')}>
           <FontAwesomeIcon icon={faMagnifyingGlass} style={styles.searchIcon} />
         </Pressable>
         <Pressable onPress={() => getLocationPermission()}>
