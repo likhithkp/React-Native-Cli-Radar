@@ -78,15 +78,9 @@ export default function MainHomeView({
     try {
       if (Object.keys(userLocation)?.length === 2) {
         const weatherData = await getWeather(userLocation);
-        setCurrentWeatherData(
-          (Object.keys(userLocation)?.length === 2 && weatherData) ||
-            (await currentWeatherForecastData),
-        );
+        setCurrentWeatherData(weatherData);
         const threeWeatherData = await getThreeHourWeatherData(userLocation);
-        setThreeHourWeatherData(
-          (Object.keys(userLocation)?.length === 2 && threeHourForecastData) ||
-            (await threeWeatherData),
-        );
+        setThreeHourWeatherData(threeWeatherData);
         setShowFetchedLocation(!showFetchedLocation);
         ToastAndroid.show('Weather fetched successfully', ToastAndroid.LONG);
         return;
