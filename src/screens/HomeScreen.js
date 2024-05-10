@@ -13,33 +13,26 @@ export default function HomeScreen() {
   const [loadingCurrentWeatherData, setLoadingCurrentWeatherData] =
     useState(true);
 
-  const getCurrentWeather = async () => {
+  const getWeatherForLocation = async () => {
     try {
-      const weatherData = await getWeather();
+      const weatherData = await getWeather({lat: 19.076, lon: 72.8777});
       setCurrentWeatherData(weatherData);
-      setLoadingCurrentWeatherData(!loadingCurrentWeatherData);
-      ToastAndroid.show('Fetching... weather', ToastAndroid.LONG);
+      setLoadingCurrentWeatherData(false);
+      const threeWeatherData = await getThreeHourWeatherData({
+        lat: 19.076,
+        lon: 72.8777,
+      });
+      setThreeHourWeatherData(threeWeatherData);
+      setLoadingThreeHourWeatherData(false);
+      ToastAndroid.show('Fetching... the weather', ToastAndroid.LONG);
       return;
     } catch {
       ToastAndroid.show('Unable to fetch the weather', ToastAndroid.LONG);
     }
   };
 
-  const fetchThreeHourData = async () => {
-    try {
-      const threeWeatherData = await getThreeHourWeatherData();
-      setThreeHourWeatherData(threeWeatherData);
-      setLoadingThreeHourWeatherData(!loadingThreeHourWeatherData);
-      ToastAndroid.show('Fetching... weather', ToastAndroid.LONG);
-      return;
-    } catch {
-      ToastAndroid.show('Unable to fetch the forecast', ToastAndroid.LONG);
-    }
-  };
-
   useEffect(() => {
-    getCurrentWeather();
-    fetchThreeHourData();
+    getWeatherForLocation();
   }, []);
 
   const {weather} = currentWeatherData;
@@ -47,13 +40,13 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {loadingCurrentWeatherData || loadingThreeHourWeatherData ? (
+        {loadingCurrentWeatherData && loadingThreeHourWeatherData ? (
           <ActivityIndicator size="large" color="#00ff00" />
         ) : (
           <MainHomeView
             weather={weather}
-            threeHourWeatherData={threeHourWeatherData}
-            currentWeatherData={currentWeatherData}
+            threeHourForecastData={threeHourWeatherData}
+            currentWeatherForecastData={currentWeatherData}
           />
         )}
       </ScrollView>
