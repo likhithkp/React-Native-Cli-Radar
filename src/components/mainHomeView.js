@@ -148,7 +148,7 @@ export default function MainHomeView({
             °
           </Text>
           <Text>
-            Feels like
+            Feels like {''}
             {Math.ceil(
               currentWeatherData?.main?.feels_like ||
                 currentWeatherForecastData?.main?.feels_like,

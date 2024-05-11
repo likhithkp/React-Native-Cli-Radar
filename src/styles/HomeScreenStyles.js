@@ -9,6 +9,12 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#121212',
   },
+  activityIndicatorContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: hp(100),
+  },
   temperature: {
     fontSize: hp(13),
     color: 'white',
@@ -34,13 +40,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     margin: hp(1.5),
   },
-  // textInput: {
-  //   padding: hp(10),
-  //   borderWidth: 1,
-  //   width: 280,
-  //   margin: 12,
-  //   borderRadius: 50,
-  // },
   mainTemperatureView: {
     alignItems: 'center',
     padding: hp(5),
@@ -50,7 +49,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     gap: hp(1),
   },
-  mainWeatherIconStyles: {height: hp(20), width: wp(36)},
+  mainWeatherIconStyles: {height: 90, width: 90},
   flatListWeatherImage: {height: hp(10), width: wp(18)},
   higLowTempView: {
     flexDirection: 'row',
