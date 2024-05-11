@@ -10,7 +10,7 @@ export default function ({currentWeatherForecastData, currentWeatherData}) {
         <Text style={styles.normalFont}>
           {currentWeatherData?.main?.sea_level ||
             currentWeatherForecastData?.main?.sea_level ||
-            'N/A'}
+            'N/A'}{' '}
         </Text>
       </View>
       <View style={styles.currentWeatherSubViewStyles}>
@@ -18,7 +18,8 @@ export default function ({currentWeatherForecastData, currentWeatherData}) {
         <Text style={styles.normalFont}>
           {currentWeatherData?.main?.grnd_level ||
             currentWeatherForecastData?.main?.grnd_level ||
-            'N/A'}
+            'N/A'}{' '}
+          m
         </Text>
       </View>
       <View style={styles.currentWeatherSubViewStyles}>
@@ -26,7 +27,8 @@ export default function ({currentWeatherForecastData, currentWeatherData}) {
         <Text style={styles.normalFont}>
           {currentWeatherData?.wind?.deg ||
             currentWeatherForecastData?.wind?.deg ||
-            'N/A'}
+            'N/A'}{' '}
+          °
         </Text>
       </View>
       <View style={styles.currentWeatherSubViewStyles}>
@@ -34,7 +36,8 @@ export default function ({currentWeatherForecastData, currentWeatherData}) {
         <Text style={styles.normalFont}>
           {currentWeatherForecastData?.wind?.gust ||
             currentWeatherForecastData?.wind?.gust ||
-            'N/A'}
+            'N/A'}{' '}
+          m/s
         </Text>
       </View>
     </View>

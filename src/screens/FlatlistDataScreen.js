@@ -60,7 +60,7 @@ export default function FlatListData({route}) {
         <View style={styles.currentWeatherSubViewStyles}>
           <Text style={styles.normalFont}>Wind deg</Text>
           <Text style={styles.normalFont}>
-            {weatherData?.wind?.deg || 'N/A'}
+            {weatherData?.wind?.deg || 'N/A'} °
           </Text>
         </View>
         <View style={styles.currentWeatherSubViewStyles}>

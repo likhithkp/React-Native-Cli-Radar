@@ -32,21 +32,24 @@ export default function CurrentWeatherDetails({
         <Text style={styles.normalFont}>Humidity</Text>
         <Text style={styles.normalFont}>
           {currentWeatherData?.main?.humidity ||
-            currentWeatherForecastData?.main?.humidity}
+            currentWeatherForecastData?.main?.humidity}{' '}
+          %
         </Text>
       </View>
       <View style={styles.currentWeatherSubViewStyles}>
         <Text style={styles.normalFont}>Pressure</Text>
         <Text style={styles.normalFont}>
           {currentWeatherData?.main?.pressure ||
-            currentWeatherForecastData?.main?.pressure}
+            currentWeatherForecastData?.main?.pressure}{' '}
+          Pa
         </Text>
       </View>
       <View style={styles.currentWeatherSubViewStyles}>
         <Text style={styles.normalFont}> Wind speed</Text>
         <Text style={styles.normalFont}>
           {currentWeatherData?.wind?.speed ||
-            currentWeatherForecastData?.wind?.speed}
+            currentWeatherForecastData?.wind?.speed}{' '}
+          mps
         </Text>
       </View>
       <View style={styles.currentWeatherSubViewStyles}>
