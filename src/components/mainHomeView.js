@@ -167,7 +167,9 @@ export default function MainHomeView({
             (showFetchedLocation && threeHourWeatherData) ||
             threeHourForecastData
           }
-          renderItem={({item}) => <FlatListComponent item={item} />}
+          renderItem={({item}) => (
+            <FlatListComponent item={item} navigation={navigation} />
+          )}
           showsHorizontalScrollIndicator={false}
           keyExtractor={weatherInfo => weatherInfo?.dt?.toString()}
           horizontal

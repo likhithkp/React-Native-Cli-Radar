@@ -31,6 +31,8 @@ export default function StackNavigation() {
           component={FlatListData}
           options={{
             headerStyle: {backgroundColor: '#121212'},
+            headerTitle: 'Details',
+            headerTintColor: 'white',
           }}
         />
       </Stack.Navigator>
