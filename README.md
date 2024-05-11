@@ -53,11 +53,11 @@ Radar is a weather application developed using React Native, allowing users to f
 
 ## Preview
   
-<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/aa0651c2-b628-40f2-8c2b-7e133b686de0" alt="Screenshot 2" width="100">
-<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/5ff6e0e3-7b14-4f13-9e92-ccf24e2ede31" alt="Screenshot 3" width="100">
-<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/b477ca2f-b36e-4b81-90ef-c3a9d93850a9" alt="Screenshot 1" width="100">
-<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/e4551cd6-a234-414d-84f7-b0f8cb5e7825" alt="Screenshot 4" width="100">
-<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/04e63a6d-d9b4-4021-ae6c-05b60a1d1565" alt="Screenshot 5" width="100">
+<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/aa0651c2-b628-40f2-8c2b-7e133b686de0" alt="Screenshot 2" width="150">
+<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/5ff6e0e3-7b14-4f13-9e92-ccf24e2ede31" alt="Screenshot 3" width="150">
+<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/b477ca2f-b36e-4b81-90ef-c3a9d93850a9" alt="Screenshot 1" width="150">
+<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/e4551cd6-a234-414d-84f7-b0f8cb5e7825" alt="Screenshot 4" width="150">
+<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/04e63a6d-d9b4-4021-ae6c-05b60a1d1565" alt="Screenshot 5" width="150">
 
 ## Contributing
 
