@@ -26,6 +26,7 @@ export default function MainHomeView({
   weather,
   threeHourForecastData,
   currentWeatherForecastData,
+  navigation,
 }) {
   const [currentWeatherData, setCurrentWeatherData] = useState({});
   const [threeHourWeatherData, setThreeHourWeatherData] = useState([]);
@@ -78,15 +79,9 @@ export default function MainHomeView({
     try {
       if (Object.keys(userLocation)?.length === 2) {
         const weatherData = await getWeather(userLocation);
-        setCurrentWeatherData(
-          (Object.keys(userLocation)?.length === 2 && weatherData) ||
-            (await currentWeatherForecastData),
-        );
+        setCurrentWeatherData(weatherData);
         const threeWeatherData = await getThreeHourWeatherData(userLocation);
-        setThreeHourWeatherData(
-          (Object.keys(userLocation)?.length === 2 && threeHourForecastData) ||
-            (await threeWeatherData),
-        );
+        setThreeHourWeatherData(threeWeatherData);
         setShowFetchedLocation(!showFetchedLocation);
         ToastAndroid.show('Weather fetched successfully', ToastAndroid.LONG);
         return;
@@ -99,7 +94,7 @@ export default function MainHomeView({
   return (
     <>
       <View style={styles.searchIconView}>
-        <Pressable onPress={() => console.log('search')}>
+        <Pressable onPress={() => navigation.navigate('Search')}>
           <FontAwesomeIcon icon={faMagnifyingGlass} style={styles.searchIcon} />
         </Pressable>
         <Pressable onPress={() => getLocationPermission()}>
@@ -153,7 +148,7 @@ export default function MainHomeView({
             °
           </Text>
           <Text>
-            Feels like
+            Feels like {''}
             {Math.ceil(
               currentWeatherData?.main?.feels_like ||
                 currentWeatherForecastData?.main?.feels_like,
