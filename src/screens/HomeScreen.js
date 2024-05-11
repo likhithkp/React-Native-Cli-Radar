@@ -24,6 +24,13 @@ export default function HomeScreen({navigation, route}) {
       if (city) {
         const cityWeather = await getCityCurrentWeather(city);
         const cityForecast = await getCityThreeHourWeather(city);
+        if (cityWeather?.cod === 404) {
+          ToastAndroid.show(
+            `Unable to fetch weather for ${city}`,
+            ToastAndroid.SHORT,
+          );
+          return;
+        }
         setCurrentWeatherData(cityWeather);
         setThreeHourWeatherData(cityForecast);
         setLoadingCurrentWeatherData(false);

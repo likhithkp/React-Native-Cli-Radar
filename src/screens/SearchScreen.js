@@ -14,19 +14,20 @@ export default function SearchScreen({navigation}) {
   const getCityName = async city => {
     try {
       const result = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ac4db0b006784d0854b9b8be0051879c`,
+        `https://api.geoapify.com/v1/geocode/autocomplete?text=${city}&apiKey=7a190b6592bd4b1cb3646d96170e1d4d`,
       );
       const data = await result.json();
-      if (data.length >= 1) {
-        setCityList(data);
-        return;
-      }
+      setCityList(data?.features);
+      return;
     } catch {
-      ToastAndroid.show('Unable to find city', ToastAndroid.SHORT);
+      ToastAndroid.show(
+        'Unable to fetch cities. Please try again later.',
+        ToastAndroid.SHORT,
+      );
     }
   };
 
-  const handleDebounce = useCallback(debounce(getCityName, 200), []);
+  const handleDebounce = useCallback(debounce(getCityName, 100), []);
 
   return (
     <View style={styles.container}>
@@ -40,14 +41,13 @@ export default function SearchScreen({navigation}) {
         />
       </View>
       {cityList.map(city => (
-        <View style={styles.resultCityView}>
+        <View style={styles.resultCityView} key={city?.properties?.place_id}>
           <Pressable
-            key={city?.state}
-            onPressIn={() => navigation.navigate('Home', {city: city?.name})}
+            onPressIn={() =>
+              navigation.navigate('Home', {city: city?.properties?.city})
+            }
             style={styles.cityListStyles}>
-            <Text style={styles.cityFont}>{city?.name}</Text>
-            <Text style={styles.cityFont}>{city?.state}</Text>
-            <Text style={styles.cityFont}>{city?.country}</Text>
+            <Text style={styles.cityFont}>{city?.properties?.formatted}</Text>
           </Pressable>
         </View>
       ))}
