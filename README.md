@@ -1,79 +1,75 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Radar Weather App
 
-# Getting Started
+Radar is a weather application developed using React Native, allowing users to fetch current location-based weather information and search for weather forecasts by city. With autocomplete and autosuggest features, users can easily find weather data for various locations. Radar provides essential weather features, displaying current weather conditions and forecasts for the next five days.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- **Current Location Weather**: Fetches weather data based on the device's current location.
+- **City Search**: Allows users to search for weather forecasts by city name.
+- **Autocomplete and Autosuggest**: Provides autocomplete and autosuggest functionality to streamline city search.
+- **Detailed Weather Information**: Displays essential weather details such as temperature, humidity, wind speed, and more.
+- **Next Five Days Forecast**: Shows weather forecasts for the next five days, allowing users to plan ahead.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Installation
 
-To start Metro, run the following command from the _root_ of your React Native project:
+1. Clone the repository:
 
-```bash
-# using npm
-npm start
+   ```
+   git clone https://github.com/your_username/radar-weather-app.git
+   ```
 
-# OR using Yarn
-yarn start
-```
+2. Navigate to the project directory:
 
-## Step 2: Start your Application
+   ```
+   cd radar-weather-app
+   ```
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+3. Install dependencies:
 
-### For Android
+   ```
+   npm install
+   ```
 
-```bash
-# using npm
-npm run android
+4. Start the application:
 
-# OR using Yarn
-yarn android
-```
+   ```
+   npm start
+   ```
 
-### For iOS
+## Usage
 
-```bash
-# using npm
-npm run ios
+1. **Current Location Weather**:
+   - Upon opening the app, Radar automatically fetches the weather data based on the device's current location.
 
-# OR using Yarn
-yarn ios
-```
+2. **City Search**:
+   - Tap on the search bar to enter a city name.
+   - As you type, the app provides autocomplete suggestions based on the input.
+   - Select the desired city from the suggestions, and Radar will fetch the weather forecast for that location.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+3. **View Weather Details**:
+   - After selecting a location, Radar displays detailed weather information including temperature, humidity, wind speed, and more.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+4. **Next Five Days Forecast**:
+   - Scroll down to view the weather forecast for the next five days, helping users plan their activities accordingly.
 
-## Step 3: Modifying your App
+## Contributing
 
-Now that you have successfully run the app, let's modify it.
+Contributions to Radar Weather App are welcome! Here's how you can contribute:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/new-feature`).
+3. Make your changes and commit them (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature/new-feature`).
+5. Create a new Pull Request.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## License
 
-## Congratulations! :tada:
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-You've successfully run and modified your React Native App. :partying_face:
+## Acknowledgements
 
-### Now what?
+Radar Weather App utilizes various open-source libraries and APIs. We acknowledge and thank the creators of these resources for their valuable contributions.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+---
 
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Feel free to customize the README further according to your app's specific implementation details and design choices. If you have any questions or need further assistance, don't hesitate to ask!
