@@ -1,4 +1,4 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Pressable} from 'react-native';
 import React from 'react';
 import {styles} from '../styles/HomeScreenStyles';
 import {formatTimestamp} from '../utils/convertTimeStamp';
@@ -6,10 +6,12 @@ import {convertMeterToKm} from '../utils/convertFromMeterToKm';
 convertMeterToKm;
 import {weatherImages} from '../utils/getImages';
 
-export default function FlatListComponent({item}) {
+export default function FlatListComponent({item, navigation}) {
   const {weather} = item;
   return (
-    <View style={styles.weatherItem}>
+    <Pressable
+      style={styles.weatherItem}
+      onPress={() => navigation.navigate('FlatListData', {weatherData: item})}>
       <Image
         source={weatherImages[weather[0]?.description]}
         style={styles.flatListWeatherImage}
@@ -20,6 +22,6 @@ export default function FlatListComponent({item}) {
       <Text style={styles.flatListComponentTextStyles}>
         {formatTimestamp(item?.dt)}
       </Text>
-    </View>
+    </Pressable>
   );
 }
