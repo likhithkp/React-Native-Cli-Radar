@@ -50,7 +50,8 @@ Radar is a weather application developed using React Native, allowing users to f
 
 4. **Next Five Days Forecast**:
    - Scroll down to view the weather forecast for the next five days, helping users plan their activities accordingly.
-     
+
+## Preview
   
 <img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/aa0651c2-b628-40f2-8c2b-7e133b686de0" alt="Screenshot 2" width="200">
 <img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/5ff6e0e3-7b14-4f13-9e92-ccf24e2ede31" alt="Screenshot 3" width="200">
