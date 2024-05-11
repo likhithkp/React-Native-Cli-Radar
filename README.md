@@ -9,15 +9,6 @@ Radar is a weather application developed using React Native, allowing users to f
 - **City Search**: Allows users to search for weather forecasts by city name.
 - **Autocomplete and Autosuggest**: Provides autocomplete and autosuggest functionality to streamline city search.
 
-![Screenshot_20240511-181235_Radar](https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/b477ca2f-b36e-4b81-90ef-c3a9d93850a9 | height=100)
-![Screenshot_20240511-181240_Package installer](https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/aa0651c2-b628-40f2-8c2b-7e133b686de0)
-![Screenshot_20240511-181204_Radar](https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/5ff6e0e3-7b14-4f13-9e92-ccf24e2ede31)
-![Screenshot_20240509-212743_Radar](https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/e4551cd6-a234-414d-84f7-b0f8cb5e7825)
-
-
-
-
-
 ## Installation
 
 1. Clone the repository:
@@ -59,6 +50,13 @@ Radar is a weather application developed using React Native, allowing users to f
 
 4. **Next Five Days Forecast**:
    - Scroll down to view the weather forecast for the next five days, helping users plan their activities accordingly.
+  
+<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/b477ca2f-b36e-4b81-90ef-c3a9d93850a9" alt="Screenshot 1" width="300">
+<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/aa0651c2-b628-40f2-8c2b-7e133b686de0" alt="Screenshot 2" width="300">
+<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/5ff6e0e3-7b14-4f13-9e92-ccf24e2ede31" alt="Screenshot 3" width="300">
+<img src="https://github.com/likhithkp/React-Native-Cli-Radar/assets/88890448/e4551cd6-a234-414d-84f7-b0f8cb5e7825" alt="Screenshot 4" width="300">
+
+
 
 ## Contributing
 
