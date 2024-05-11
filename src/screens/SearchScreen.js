@@ -14,19 +14,22 @@ export default function SearchScreen({navigation}) {
   const getCityName = async city => {
     try {
       const result = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ac4db0b006784d0854b9b8be0051879c`,
+        `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=r8RNZRc6aqdCrXCAMoiiQrJN7YYAgy8C&q=${city}`,
       );
       const data = await result.json();
       if (data.length >= 1) {
         setCityList(data);
-        return;
       }
+      return;
     } catch {
-      ToastAndroid.show('Unable to find city', ToastAndroid.SHORT);
+      ToastAndroid.show(
+        'Unable to fetch cities. Please try again later.',
+        ToastAndroid.SHORT,
+      );
     }
   };
 
-  const handleDebounce = useCallback(debounce(getCityName, 200), []);
+  const handleDebounce = useCallback(debounce(getCityName, 100), []);
 
   return (
     <View style={styles.container}>
@@ -40,14 +43,17 @@ export default function SearchScreen({navigation}) {
         />
       </View>
       {cityList.map(city => (
-        <View style={styles.resultCityView}>
+        <View style={styles.resultCityView} key={city.Key}>
           <Pressable
-            key={city?.state}
-            onPressIn={() => navigation.navigate('Home', {city: city?.name})}
+            onPressIn={() =>
+              navigation.navigate('Home', {city: city?.LocalizedName})
+            }
             style={styles.cityListStyles}>
-            <Text style={styles.cityFont}>{city?.name}</Text>
-            <Text style={styles.cityFont}>{city?.state}</Text>
-            <Text style={styles.cityFont}>{city?.country}</Text>
+            <Text style={styles.cityFont}>{city?.LocalizedName}</Text>
+            <Text style={styles.cityFont}>
+              {city?.AdministrativeArea?.LocalizedName}
+            </Text>
+            <Text style={styles.cityFont}>{city?.Country?.LocalizedName}</Text>
           </Pressable>
         </View>
       ))}
