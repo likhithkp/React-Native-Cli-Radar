@@ -14,12 +14,10 @@ export default function SearchScreen({navigation}) {
   const getCityName = async city => {
     try {
       const result = await fetch(
-        `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=r8RNZRc6aqdCrXCAMoiiQrJN7YYAgy8C&q=${city}`,
+        `https://api.geoapify.com/v1/geocode/autocomplete?text=${city}&apiKey=7a190b6592bd4b1cb3646d96170e1d4d`,
       );
       const data = await result.json();
-      if (data.length >= 1) {
-        setCityList(data);
-      }
+      setCityList(data?.features);
       return;
     } catch {
       ToastAndroid.show(
@@ -43,17 +41,13 @@ export default function SearchScreen({navigation}) {
         />
       </View>
       {cityList.map(city => (
-        <View style={styles.resultCityView} key={city.Key}>
+        <View style={styles.resultCityView} key={city?.properties?.place_id}>
           <Pressable
             onPressIn={() =>
-              navigation.navigate('Home', {city: city?.LocalizedName})
+              navigation.navigate('Home', {city: city?.properties?.city})
             }
             style={styles.cityListStyles}>
-            <Text style={styles.cityFont}>{city?.LocalizedName}</Text>
-            <Text style={styles.cityFont}>
-              {city?.AdministrativeArea?.LocalizedName}
-            </Text>
-            <Text style={styles.cityFont}>{city?.Country?.LocalizedName}</Text>
+            <Text style={styles.cityFont}>{city?.properties?.formatted}</Text>
           </Pressable>
         </View>
       ))}
