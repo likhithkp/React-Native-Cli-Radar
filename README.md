@@ -15,31 +15,31 @@ Radar is a weather application developed using React Native, allowing users to f
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your_username/radar-weather-app.git
+   git clone https://github.com/likhithkp/React-Native-Cli-Radar.git
    ```
 
 2. Navigate to the project directory:
 
    ```
-   cd radar-weather-app
+   cd Radar
    ```
 
 3. Install dependencies:
 
    ```
-   npm install
+   yarn
    ```
 
 4. Start the application:
 
    ```
-   npm start
+   yarn start
    ```
 
 ## Usage
 
 1. **Current Location Weather**:
-   - Upon opening the app, Radar automatically fetches the weather data based on the device's current location.
+   - Upon opening the app, Radar automatically fetches the weather data based on the fixed location.
 
 2. **City Search**:
    - Tap on the search bar to enter a city name.
@@ -68,8 +68,4 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ## Acknowledgements
 
-Radar Weather App utilizes various open-source libraries and APIs. We acknowledge and thank the creators of these resources for their valuable contributions.
-
----
-
-Feel free to customize the README further according to your app's specific implementation details and design choices. If you have any questions or need further assistance, don't hesitate to ask!
+Radar Weather App utilizes various open-source libraries and APIs. I acknowledge and thank the creators of these resources for their valuable contributions.
